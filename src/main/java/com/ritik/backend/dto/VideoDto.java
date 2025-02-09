@@ -26,6 +26,7 @@ public class VideoDto {
                 .url(video.getUrl())
                 .fileSize(video.getFileSize())
                 .uploadDate(video.getUploadedAt())
+
                 .build();
     }
 }

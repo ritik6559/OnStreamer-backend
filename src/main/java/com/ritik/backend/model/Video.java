@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -27,36 +28,18 @@ public class Video {
     @Column(nullable = false)
     private String s3Key;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-//
-//    @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-//    private List<Comment> comments = new ArrayList<>();
-//
-//    // many videos can be liked by many users
-//    @ManyToMany(mappedBy = "likedVideos", fetch = FetchType.LAZY)
-//    private Set<User> likedByUsers = new HashSet<>();
-
     @Column(nullable = false)
     private String contentType;
 
     @Column(nullable = false, length = 2048)
     private String url;
 
-//    @Column(nullable = false, length = 2048)
-//    private String thumbnail_url;
-
     private Long fileSize;
 
-//    private Long likes = 0L;
-//
-//    private Long dislikes = 0L;
-
     @CreatedDate
-    private LocalDateTime uploadedAt;
+    private LocalDateTime uploadedAt = LocalDateTime.now();
 
     @LastModifiedDate
-    private LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate = LocalDateTime.now();
 
 }
